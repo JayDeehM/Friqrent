@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  total: 1
+  amount: 1
+  equipment_id: 
+
+two:
+  total: 1
+  amount: 1
+  equipment_id: 

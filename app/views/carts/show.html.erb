@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @cart.total %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @cart.amount %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @cart.equipment.rent_price %>
+  <%= @cart.equipment.speaker_name %>
+  <h1><%= @cart.equipment.mixer_name %></h1>
+                    <h1><%=  @cart.equipment.speaker_name %></h1>
+                    <h1><%=  @cart.equipment.microphone_name %></h1>
+                    <h1><%=  @cart.equipment.amplifier_name %></h1>
+</p>
+
+<%= link_to 'Edit', edit_cart_path(@cart) %> |
+<%= link_to 'Back', carts_path %>

@@ -1,0 +1,25 @@
+
+<div class="cartlist">
+    
+</div>
+<script>
+  
+  function showCartItems() {
+    if(localStorage.cart) {
+      for(var i=0,i<localStorage.cart.length, i++) {
+          <% @equipment = Equipment.find( %>
+          localStorage.cart[i]
+          <% ) %>
+          $(.cartlist).innerHTML += '<div>
+               <h1><%= equipment.mixer_name %></h1>
+                    <h1><%= equipment.speaker_name %></h1>
+                    <h1><%= equipment.microphone_name %></h1>
+                    <h1><%= equipment.amplifier_name %></h1>
+                    <p><%= equipment.company.company_name %></p>
+                  <p>Php <%= equipment.rent_price %></p>
+          </div>'
+      }
+    }
+  }
+  
+</script>

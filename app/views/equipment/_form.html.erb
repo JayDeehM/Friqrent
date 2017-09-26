@@ -1,0 +1,123 @@
+<%= form_for @equipment, html: { multipart: true } do |f| %>
+  <% if @equipment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@equipment.errors.count, "error") %> prohibited this equipment from being saved:</h2>
+
+      <ul>
+      <% @equipment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :category %><br>
+    <%= f.select :category, ['Select a category','mixer', 'speaker', 'microphone', 'amplifier'] %>
+  </div>
+
+
+<div id="other" class="equip">
+    <div class="field">
+      <%= f.label :image %><br> 
+      <%= f.file_field :image, id:'image' %>
+    </div>
+</div>
+
+<div id="mixer" class="equip">
+    <div class="field">
+      <%= f.label :mixer_name %><br>
+      <%= f.text_field :mixer_name %>
+    </div>
+    <div class="field">
+      <%= f.label :faders %><br>
+      <%= f.number_field :faders %>
+    </div>
+    <div class="field">
+      <%= f.label :inputs %><br>
+      <%= f.number_field :inputs %>
+    </div>
+    <div class="field">
+      <%= f.label :house_outputs %><br>
+      <%= f.number_field :house_outputs %>
+    </div>
+    <div class="field">
+      <%= f.label :monitor_outputs %><br>
+      <%= f.number_field :monitor_outputs %>
+    </div>
+</div>
+
+<div id="speaker" class="equip">
+    <div class="field">
+      <%= f.label :speaker_name %><br>
+      <%= f.text_field :speaker_name %>
+    </div>
+    <div class="field">
+      <%= f.label :watts %><br>
+      <%= f.number_field :watts %>
+    </div>
+    <div class="field">
+      <%= f.label :woofer_size %><br>
+      <%= f.number_field :woofer_size %>
+    </div>
+    <div class="field">
+      <%= f.label :peak %><br>
+      <%= f.number_field :peak %>
+    </div>
+</div>
+
+<div id="microphone" class="equip">
+    <div class="field">
+      <%= f.label :microphone_name %><br>
+      <%= f.text_field :microphone_name %>
+    </div>
+    <div class="field">
+      <%= f.label :wired %><br>
+      <%= f.check_box :wired %>
+    </div>
+    <div class="field">
+      <%= f.label :wireless %><br>
+      <%= f.check_box :wireless %>
+    </div>
+</div>
+
+<div id="amplifier" class="equip">
+    <div class="field">
+      <%= f.label :amplifier_name %><br>
+      <%= f.text_field :amplifier_name %>
+    </div>
+    <div class="field">
+      <%= f.label :guitar %><br>
+      <%= f.check_box :guitar %>
+    </div>
+    <div class="field">
+      <%= f.label :bass %><br>
+      <%= f.check_box :bass %>
+    </div>
+    <div class="field">
+      <%= f.label :keyboard %><br>
+      <%= f.check_box :keyboard %>
+    </div>
+     <div class="field">
+      <%= f.label :watts %><br>
+      <%= f.number_field :awatts %>
+    </div>
+</div>
+  
+<div id="other1" class="equip">
+    <div class="field">
+      <%= f.label :rent_price %><br>
+      <%= f.number_field :rent_price %>
+    </div>
+    <div class="field">
+      <%= f.label :others %><br>
+      <%= f.text_area :others %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+</div>
+  
+  
+  
+<% end %>

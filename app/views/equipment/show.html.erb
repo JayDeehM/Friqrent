@@ -1,0 +1,122 @@
+<p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Category:</strong>
+    <%= @equipment.category %>
+  </p>
+  
+  <p>
+    <%= image_tag @equipment.image.url(:medium) %>
+  </p>
+
+<% if @equipment.category == "mixer" %>
+  <p>
+    <strong>Mixer name:</strong>
+    <%= @equipment.mixer_name %>
+  </p>
+
+  <p>
+    <strong>Faders:</strong>
+    <%= @equipment.faders %>
+  </p>
+  
+  <p>
+    <strong>Inputs:</strong>
+    <%= @equipment.inputs %>
+  </p>
+  
+  <p>
+    <strong>House outputs:</strong>
+    <%= @equipment.house_outputs %>
+  </p>
+  
+  <p>
+    <strong>Monitor outputs:</strong>
+    <%= @equipment.monitor_outputs %>
+  </p>
+
+<% elsif @equipment.category == "speaker" %>
+  <p>
+    <strong>Speaker name:</strong>
+    <%= @equipment.speaker_name %>
+  </p>
+  
+  <p>
+    <strong>Watts:</strong>
+    <%= @equipment.watts %>
+  </p>
+  
+  <p>
+    <strong>Woofer size:</strong>
+    <%= @equipment.woofer_size %>
+  </p>
+  
+  <p>
+    <strong>Peak:</strong>
+    <%= @equipment.peak %>
+  </p>
+
+<% elsif @equipment.category == "microphone" %>
+
+  <p>
+    <strong>Microphone name:</strong>
+    <%= @equipment.microphone_name %>
+  </p>
+  
+  <p>
+    <strong>Wired:</strong>
+    <%= @equipment.wired %>
+  </p>
+  
+  <p>
+    <strong>Wireless:</strong>
+    <%= @equipment.wireless %>
+  </p>
+
+
+<% else @equipment.category == "speaker" %>
+
+  <p>
+    <strong>Amplifier name:</strong>
+    <%= @equipment.amplifier_name %>
+  </p>
+  
+  <p>
+    <strong>Guitar:</strong>
+    <%= @equipment.guitar %>
+  </p>
+  
+  <p>
+    <strong>Bass:</strong>
+    <%= @equipment.bass %>
+  </p>
+  
+  <p>
+    <strong>Keyboard:</strong>
+    <%= @equipment.keyboard %>
+  </p>
+  
+  <p>
+    <strong>Watts:</strong>
+    <%= @equipment.awatts %>
+  </p>
+<% end %>
+
+  <p>
+    <strong>Rent price:</strong>
+    <%= @equipment.rent_price %>
+  </p>
+  
+  
+  <p>
+    <strong>Others:</strong>
+    <%= @equipment.others %>
+  </p>
+
+<% if company_signed_in? %>
+  <% if @equipment.company.company_name == current_company.company_name %>
+    <%= link_to 'Edit', edit_equipment_path(@equipment) %> |
+  <% end %>
+<% end %>
+
+<%= link_to 'Back', equipment_index_path %>

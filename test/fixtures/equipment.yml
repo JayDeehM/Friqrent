@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: MyString
+  mixer_name: MyString
+  faders: 1
+  inputs: 1
+  house_outputs: 1
+  monitor_outputs: 1
+  speaker_name: MyString
+  watts: 1
+  woofer_size: 1
+  peak: 1
+  microphone_name: MyString
+  wired: false
+  wireless: false
+  amplifier_name: MyString
+  guitar: false
+  bass: false
+  keyboard: false
+  rent_price: 1
+  others: MyText
+
+two:
+  category: MyString
+  mixer_name: MyString
+  faders: 1
+  inputs: 1
+  house_outputs: 1
+  monitor_outputs: 1
+  speaker_name: MyString
+  watts: 1
+  woofer_size: 1
+  peak: 1
+  microphone_name: MyString
+  wired: false
+  wireless: false
+  amplifier_name: MyString
+  guitar: false
+  bass: false
+  keyboard: false
+  rent_price: 1
+  others: MyText

@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>Listing Rents</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Total</th>
+      <th>Amount</th>
+      <th>Equipments</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @carts.each do |cart| %>
+      <tr>
+        <td><%= cart.total %></td>
+        <td><%= cart.amount %></td>
+
+           <td><%= cart.equipment.mixer_name %></td>
+           <td><%= cart.equipment.speaker_name %></td>
+           <td><%= cart.equipment.microphone_name %></td>
+           <td><%= cart.equipment.amplifier_name %></td>
+           <td><%= cart.equipment.company.company_name %></td>
+           
+        <td><%= link_to 'Show', cart %></td>
+        <td><%= link_to 'Edit', edit_cart_path(cart) %></td>
+        <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cart', new_cart_path %>
+

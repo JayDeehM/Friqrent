@@ -1,0 +1,81 @@
+<div id='showbody'>
+    <nav class="navbar navbar-inverse navbar-fixed-top" id='nav-comp'>
+      <div class="container-fluid">  
+          <a class="nav navbar-brand navbar-left" ><%= @company.company_name %></a>
+          <ul class="navbar-brand navbar-right" id='user-status'>
+            <% if company_signed_in? %>
+                <% if @company.company_name == current_company.company_name %>
+                    <%= link_to 'New Equipment', new_equipment_path  %>
+                <% end %>
+            <% end %>
+            <%= link_to 'Back', equipment_index_path %>
+          </ul>
+      </div>
+    </nav>
+    
+    
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+    
+        
+      
+        <% @equipments.each do |equipment| %>
+            <% if equipment.company_id == @company.id %>
+                <div class="column">
+                  <div class="col-md-4">
+                    <div class="thumbnail">
+                      <%= image_tag equipment.image.url(:medium) %>
+                        <div class="caption">
+                            <h1><%= equipment.mixer_name %></h1>
+                            <h1><%= equipment.speaker_name %></h1>
+                            <h1><%= equipment.microphone_name %></h1>
+                            <h1><%= equipment.amplifier_name %></h1>
+                            <p><%= equipment.company.company_name %></p>
+                          <p>Php <%= equipment.rent_price %></p>
+                                <p><a><%= link_to 'Show', equipment %></a>
+                                <% if company_signed_in? %>
+                                  <% if equipment.company.company_name == current_company.company_name %>
+                                    <a><%= link_to 'Destroy', equipment, method: :delete, data: { confirm: 'Are you sure?' } %></a></p>
+                                  <% end %>
+                                <% end %>
+                                        <div class="cart-<%= equipment.id  %>">
+                                        <%= form_for(@cart) do |f| %>
+                                          <% if @cart.errors.any? %>
+                                            <div id="error_explanation">
+                                              <h2><%= pluralize(@cart.errors.count, "error") %> prohibited this cart from being saved:</h2>
+                                        
+                                              <ul>
+                                              <% @cart.errors.full_messages.each do |message| %>
+                                                <li><%= message %></li>
+                                              <% end %>
+                                              </ul>
+                                            </div>
+                                          <% end %>
+                                          
+                                            <%= f.number_field :amount %>
+                                            <%= f.number_field :total %>
+                                            <%= f.hidden_field :equipment_id, :value => equipment.id %>
+                                            <%= f.submit %>
+                                        
+                                        <% end %>
+                  
+                                        <script>
+                    
+                                          $('.cart-<%= equipment.id  %> #cart_amount').change(function(){
+                                            $('.cart-<%= equipment.id  %> #cart_total').val(parseInt($('.cart-<%= equipment.id  %> #cart_amount').val()) * parseInt(<%= equipment.rent_price %>));
+                                          });
+                                          
+                                        </script>
+                        
+                                        </div>
+                    </div>
+                  </div>
+                </div>
+            <% end %>
+        <%end %>
+    
+    
+    
+
+</div>   
