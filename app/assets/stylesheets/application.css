@@ -60,3 +60,8 @@
     margin: auto;
     justify-content: center;
 }
+
+#showequipment {
+    margin-top: 50px;
+    padding: 50px;
+}

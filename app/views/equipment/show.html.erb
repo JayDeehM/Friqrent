@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<div id='showequipment'>
   <p>
     <strong>Category:</strong>
     <%= @equipment.category %>
@@ -118,5 +118,6 @@
     <%= link_to 'Edit', edit_equipment_path(@equipment) %> |
   <% end %>
 <% end %>
+</div>
 
 <%= link_to 'Back', equipment_index_path %>
